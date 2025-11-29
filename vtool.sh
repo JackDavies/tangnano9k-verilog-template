@@ -16,6 +16,7 @@ function check_abort(){
 }
 
 function build_flash(){
+	mkdir -p ./build/
 	echo "yosys -p read_verilog $module.v; synth_gowin -json ./build/$module.json"
 	yosys -p "read_verilog $module.v; synth_gowin -json ./build/$module.json"	
 	echo **DONE**
@@ -64,12 +65,14 @@ while true; do
 	if [[ $userIn = "exit" ]]; then
 		break
 	elif [[ $userIn = "iv" ]]; then
+		mkdir -p ./sim/
 		inputFile="$module.v"
 		echo "iverilog -o ./sim/$module  $inputFile"
 		iverilog -o ./sim/$module  $inputFile
 		echo "done"
 		echo ""
 	elif [[ $userIn = "vvp" ]]; then
+		mkdir -p ./sim/
 		echo "vvp ./sim/$module"
 		vvp ./sim/tb_counter
 		echo "done"
