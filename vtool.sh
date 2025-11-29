@@ -74,7 +74,7 @@ while true; do
 	elif [[ $userIn = "vvp" ]]; then
 		mkdir -p ./sim/
 		echo "vvp ./sim/$module"
-		vvp ./sim/tb_counter
+		vvp ./sim/$module
 		echo "done"
 		echo ""
 	elif [[ $userIn = "gw" ]]; then
