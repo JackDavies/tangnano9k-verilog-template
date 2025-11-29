@@ -7,7 +7,7 @@ function set_module() {
 }
 
 function check_abort(){
-	read -p "about?:" a
+	read -p "abort?:" a
 	if [[ $a = "y" ]]; then
 		return 1
 	else
